@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ملخص وتمارين - قيس الجازي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>إهداء للأميرة ماريا - أنواع البحوث</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e67e22;
-            --bg-color: #f4f6f9;
+            /* ألوان ملكية للأميرة */
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-color: #5b32a8; /* بنفسجي غامق */
+            --secondary-color: #9b59b6; /* بنفسجي فاتح */
+            --accent-color: #e91e63; /* وردي غامق */
+            --bg-color: #fdf2f8; /* خلفية وردية فاتحة جداً */
             --card-bg: #ffffff;
-            --text-color: #333;
+            --text-color: #2c3e50;
             --success-color: #27ae60;
             --error-color: #c0392b;
         }
@@ -39,41 +41,81 @@
         /* Header */
         header {
             text-align: center;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--primary-gradient);
             color: white;
-            padding: 40px 20px;
-            border-radius: 15px;
+            padding: 50px 20px;
+            border-radius: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(118, 75, 162, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* زخرفة بسيطة للخلفية */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-family: 'Amiri', serif; /* خط عربي كلاسيكي للعنوان */
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         header h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            opacity: 0.9;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         header .badge {
-            background-color: var(--accent-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-top: 15px;
             display: inline-block;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 1;
         }
 
         /* Summary Section */
         .section-title {
-            border-right: 5px solid var(--secondary-color);
-            padding-right: 15px;
-            margin: 40px 0 20px 0;
+            text-align: center;
+            margin: 50px 0 30px 0;
             color: var(--primary-color);
             font-size: 1.8rem;
+            font-family: 'Amiri', serif;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: '♥';
+            display: block;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-top: 5px;
         }
 
         .grid-cards {
@@ -84,22 +126,24 @@
 
         .card {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border-top: 4px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--secondary-color);
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(118, 75, 162, 0.15);
         }
 
         .card h3 {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px dashed #eee;
             padding-bottom: 10px;
+            font-weight: 800;
         }
 
         .card ul {
@@ -107,62 +151,59 @@
         }
 
         .card ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             position: relative;
-            padding-right: 20px;
+            padding-right: 25px;
         }
 
         .card ul li::before {
-            content: "•";
-            color: var(--accent-color);
-            font-weight: bold;
+            content: "🌸"; /* زهرة بدل النقطة */
+            font-size: 0.8rem;
             position: absolute;
             right: 0;
+            top: 4px;
         }
 
-        /* Table Style for Variables */
+        /* Table Style */
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 20px;
         }
 
         .comparison-table th, .comparison-table td {
-            padding: 15px;
+            padding: 18px;
             text-align: right;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .comparison-table th {
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
             color: white;
-        }
-
-        .comparison-table tr:hover {
-            background-color: #f9f9f9;
         }
 
         /* Quiz Section */
         .quiz-container {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f0e6fa;
         }
 
         .question-block {
             margin-bottom: 25px;
             padding-bottom: 20px;
-            border-bottom: 1px dashed #ddd;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .question-text {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
@@ -170,7 +211,7 @@
         .options-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 12px;
         }
 
         @media (max-width: 600px) {
@@ -181,75 +222,91 @@
 
         .option-label {
             display: block;
-            background: #f8f9fa;
-            padding: 10px 15px;
-            border-radius: 8px;
+            background: #fdfaff;
+            padding: 12px 15px;
+            border-radius: 10px;
             cursor: pointer;
-            border: 2px solid transparent;
+            border: 2px solid #f3e5f5;
             transition: all 0.2s;
         }
 
         .option-label:hover {
-            background: #e9ecef;
+            background: #f3e5f5;
+            border-color: var(--secondary-color);
         }
 
         input[type="radio"] {
-            margin-left: 8px;
+            margin-left: 10px;
+            accent-color: var(--primary-color);
         }
 
         /* Quiz Feedback Styles */
         .correct-answer {
-            background-color: #d4edda !important;
+            background-color: #e8f5e9 !important;
             border-color: var(--success-color) !important;
-            color: #155724;
+            color: #1b5e20;
+            font-weight: bold;
         }
 
         .wrong-answer {
-            background-color: #f8d7da !important;
+            background-color: #ffebee !important;
             border-color: var(--error-color) !important;
-            color: #721c24;
+            color: #b71c1c;
         }
 
         .btn {
-            background-color: var(--secondary-color);
+            background: var(--primary-gradient);
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 18px 30px;
             font-size: 1.1rem;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             width: 100%;
             font-family: 'Tajawal', sans-serif;
             font-weight: bold;
-            transition: background 0.3s;
-            margin-top: 20px;
+            transition: opacity 0.3s, transform 0.2s;
+            margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
         }
 
         .btn:hover {
-            background-color: #2980b9;
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
 
         .btn-print {
-            background-color: var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
             margin-bottom: 10px;
+            box-shadow: none;
+        }
+        
+        .btn-print:hover {
+            background: #f3e5f5;
+            transform: none;
         }
 
         #result-area {
             text-align: center;
             font-size: 1.5rem;
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 15px;
             display: none;
             font-weight: bold;
+            background-color: #fafafa;
+            border: 2px solid #eee;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9rem;
+            margin-top: 60px;
+            padding: 30px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-family: 'Amiri', serif;
         }
 
         /* Print Styles */
@@ -259,7 +316,7 @@
                 color: black !important;
                 box-shadow: none !important;
             }
-            header { border-bottom: 2px solid black; padding-bottom: 10px; }
+            header h2 { color: black !important; text-shadow: none; }
             .btn { display: none; }
             body { background: white; }
             .card { break-inside: avoid; border: 1px solid #ccc; box-shadow: none; }
@@ -272,8 +329,8 @@
 <div class="container">
     <header>
         <h1>أنواع البحوث العلمية</h1>
-        <h2>إعداد الطالب: قيس الجازي</h2>
-        <div class="badge">ملخص شامل + 25 سؤال تفاعلي</div>
+        <h2>من قيس لأميرته ماريا 👑</h2>
+        <div class="badge">أتمنى لكِ النجاح والتفوق دائماً ❤️</div>
     </header>
 
     <div class="controls" style="text-align: left;">
@@ -386,13 +443,13 @@
             <div id="questions-wrapper">
                 <!-- سيتم توليد الأسئلة هنا بواسطة الجافاسكربت -->
             </div>
-            <button type="button" class="btn" onclick="submitQuiz()">تسليم الإجابة وعرض النتيجة</button>
+            <button type="button" class="btn" onclick="submitQuiz()">تسليم الإجابة وعرض النتيجة ✨</button>
         </form>
         <div id="result-area"></div>
     </div>
 
     <footer>
-        <p>تم إعداد هذا المحتوى بمساعدة مساعدك الشخصي <strong>Qaes ai</strong></p>
+        <p>بكل حب.. من <strong>قيس</strong> ❤️</p>
     </footer>
 </div>
 
@@ -600,10 +657,10 @@
         let message = "";
         let color = "";
         
-        if (percent >= 90) { message = "ممتاز يا قيس!"; color = "#27ae60"; }
-        else if (percent >= 70) { message = "جيد جداً!"; color = "#2980b9"; }
-        else if (percent >= 50) { message = "جيد، تحتاج لبعض المراجعة."; color = "#f39c12"; }
-        else { message = "حاول مرة أخرى."; color = "#c0392b"; }
+        if (percent >= 90) { message = "ممتازة يا ماريا! 🌟"; color = "#27ae60"; }
+        else if (percent >= 70) { message = "أحسنتِ، أداء رائع! 🌸"; color = "#8e44ad"; }
+        else if (percent >= 50) { message = "جيد، راجعي النقاط مرة أخرى 💪"; color = "#f39c12"; }
+        else { message = "حاولي مرة أخرى، النجاح قادم!"; color = "#c0392b"; }
 
         resultArea.innerHTML = `النتيجة: ${score} من ${questions.length} (${percent}%)<br><span style="color:${color}">${message}</span>`;
         
